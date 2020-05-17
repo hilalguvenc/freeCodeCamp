@@ -6,9 +6,11 @@ function sumPrimes(num) {
     for (var i = 2; i < x; i++) {
       if (x % i == 0) {
         break;
+      } else if (i === x - 1) {
+        sumAll += x;
       }
     }
-    return sumAll;
   }
+  return sumAll;
 }
 sumPrimes(10);
