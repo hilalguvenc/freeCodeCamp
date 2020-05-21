@@ -1,17 +1,16 @@
 function sumFibs(num) {
-    var total = 0;
-    var x = 1;
-    var y = 1;
-    while(x <= num){
-      if(y%2 !==0 && y<=num){
-        total += y;
-      }
-      if(x % 2 !== 0 ){
-        total += x;
-      }
+  var prevNumber = 0;
+  var currNumber = 1;
+  var result = 0;
+  while (currNumber <= num) {
+    if (currNumber % 2 !== 0) {
+      result += currNumber;
     }
-   return total;
+
+    currNumber += prevNumber;
+    prevNumber = currNumber - prevNumber;
   }
-  
-  sumFibs(4);
-  //fibonacci= 1,1,2,3,5,8,13....
+
+  return result;
+}
+sumFibs(4);
