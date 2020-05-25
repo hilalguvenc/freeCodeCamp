@@ -1,15 +1,16 @@
 function smallestCommons(arr) {
-  var newArr = [arr[0]];
-  var total = 1;
-  for (i = 1; i <= arr[1] - arr[0]; i++) {
-    newArr.push(arr[0] + i);
-  }
-  for (j = 0; j < newArr.length; j++) {
-    if (newArr[j] / (j + 1) == 1) {
-      total *= newArr[j];
+  let min = Math.min(arr[0],arr[1]);
+  let max = Math.max(arr[0],arr[1]);
+  var multiple = max;
+  for(var i=max;i>=min;i--){
+    if(multiple % i !== 0){
+         multiple += max; 
+         i = max;
     }
   }
-  return total;
+ return multiple;  
 }
 
-smallestCommons([1, 5]);
+
+smallestCommons([1,5]);
+
